@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>html5</title>
+</head>
+<body>
+	
+<style> 
+.por{position:relative;}
+.poa{position:absolute;}
+html,body{margin:0;padding:0;}
+.wrap{width:640px;height:1008px;background:#ccc;margin:0 auto;overflow:hidden;}
+.box1{width:100px;height:20px;background:#333;transition:transform 2s;left:-100px;top:20px;}
+.box1-hover{transform:translate(200px,0);}
+.box2{width:200px;height:30px;background:#999;transition:transform 2s;left:-200px;top:100px;}
+.box2-hover{transform:translate(400px,0);}
+</style>
+
+<div class="wrap por">
+	<div class="box1 poa"></div>
+	<div class="box2 poa"></div>
+</div>
+
+<script type="text/javascript">
+
+function main(){
+	document.querySelector('.box1').className+=' box1-hover';
+	document.querySelector('.box2').className+=' box2-hover';
+}
+setTimeout(function(){
+	main();	
+},1000);
+
+</script>
+
+</body>
+</html>
