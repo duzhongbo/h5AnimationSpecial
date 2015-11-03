@@ -16,25 +16,47 @@ html,body{margin:0;}
 .box1{width:100px;height:20px;background:#999;top:10px;left:200px;}
 
 .box2{width:50px;height:30px;background:#666;top:100px;left:300px;}
-</style>	
 
+</style>
 
 <div class="wrap por">
-	<div class="box1 poa box"></div>
-	<div class="box2 poa box"></div>
+	<div class="box1 poa box" data-animate-type="bounceInLeft"></div>
+	<div class="box2 poa box" data-animate-type="flipInY"></div>
 </div>
 
 <script type="text/javascript">
 
-setTimeout(function(){
-	var box = document.querySelector('.box1');
-	box.style.visibility='visible';
-	box.className+=' animated bounceInLeft';
 
-	var box2 = document.querySelector('.box2');
-	box2.style.visibility='visible';
-	box2.className+=' animated bounceInRight';
-},1000);
+var animate = {
+	main:function(){
+		var boxs = document.querySelectorAll('.box'), animateType=[], className, self=this;
+		// 获取每个动画元素的动画类型
+		for(var i=0,len=boxs.length;i<len;i++){
+			className = boxs[i].getAttribute('data-animate-type');
+			animateType.push(className);
+		}
+		// 开始第一个动画
+		setTimeout(function(){
+			self.animate(boxs,0,animateType);
+		},500);
+	},
+	animate:function(arrBox,i,animateType){
+		var self = this,curBox=arrBox[i];
+		if(!curBox){
+			return;
+		}
+		// 显示动画元素
+		curBox.style.visibility='visible';
+		// 开始动画
+		curBox.className+=' animated '+animateType[i];
+		// 一个动画结束时开始下一个动画
+		curBox.addEventListener('webkitAnimationEnd',function(){
+			i=i+1;
+			self.animate(arrBox,i,animateType);
+		},false);		
+	}
+}
+animate.main();
 
 </script>
 
