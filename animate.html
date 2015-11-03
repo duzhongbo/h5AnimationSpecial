@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>html5</title>
+<link rel="stylesheet" type="text/css" href="css/animate.css">
+</head>
+<body>
+<style type="text/css">
+.por{position:relative;}
+.poa{position:absolute;}
+html,body{margin:0;}
+.wrap{width:640px;height:1008px;background:#ccc;margin:0 auto;overflow:hidden;}
+.box{visibility:hidden;}
+
+.box1{width:100px;height:20px;background:#999;top:10px;left:200px;}
+
+.box2{width:50px;height:30px;background:#666;top:100px;left:300px;}
+</style>	
+
+
+<div class="wrap por">
+	<div class="box1 poa box"></div>
+	<div class="box2 poa box"></div>
+</div>
+
+<script type="text/javascript">
+
+setTimeout(function(){
+	var box = document.querySelector('.box1');
+	box.style.visibility='visible';
+	box.className+=' animated bounceInLeft';
+
+	var box2 = document.querySelector('.box2');
+	box2.style.visibility='visible';
+	box2.className+=' animated bounceInRight';
+},1000);
+
+</script>
+
+</body>
+</html>
