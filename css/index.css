@@ -4,7 +4,7 @@ html,body{margin:0;padding:0;}
 .wrap{width:640px;height:1008px;background:#ccc;margin:0 auto;overflow:hidden;}
 .box1{width:100px;height:20px;background:#333;transition:transform 2s;left:-100px;top:20px;}
 .box1-hover{transform:translate(200px,0);}
-.box2{width:200px;height:30px;background:#999;transition:transform 2s;left:-200px;top:100px;}
-.box2-hover{transform:translate(400px,0);}
+.box2{width:200px;height:30px;background:#999;transition:transform 2s;right:-200px;top:100px;}
+.box2-hover{transform:translate(-300px,0);}
 .box3{width:50px;height:30px;background:#999;transition:transform 2s;left:-200px;top:200px;}
 .box3-hover{transform:translate(300px,0);}
